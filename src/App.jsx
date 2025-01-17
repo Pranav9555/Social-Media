@@ -1,11 +1,19 @@
 import Header from "./Components/Header";
+import "./App.css";
 import SideBar from "./Components/SideBar";
+import Posts from "./Components/Posts";
+import Footer from "./Components/Footer";
+import "./App.css";
 
 function App() {
   return (
     <>
       <Header />
-      <SideBar />
+      <div className="contain">
+        <SideBar />
+        <Posts />
+      </div>
+      <Footer />
     </>
   )
 }
