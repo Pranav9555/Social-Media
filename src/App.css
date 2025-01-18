@@ -14,3 +14,16 @@
   font-size: 1rem;
   cursor: pointer;
 }
+
+.content {
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+}
+
+.post {
+  margin-top: 1rem;
+  width: 50%;
+}
