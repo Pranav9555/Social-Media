@@ -25,18 +25,11 @@ let PostListProvider = ({ children }) => {
       }
     })
   }
-  let addPost = (userId, postTitle, postContent, Likes, Dislikes, Hastags) => {
+  let addPost = (post) => {
     dispatchPostlist({
       type: 'ADDPOST',
-      payload: {
-        id: Date.now(),
-        title: postTitle,
-        body: postContent,
-        likes: Likes,
-        dislikes: Dislikes,
-        userId: userId,
-        tags: Hastags
-      }
+      payload:
+        post,
     })
   }
   return (

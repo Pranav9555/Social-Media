@@ -20,7 +20,22 @@ function CreatePost() {
     let Dislikes = dislikesElement.current.value;
     let Hastags = HastagElement.current.value.split(" ");
 
-    addPost(userId, postTitle, postContent, Likes, Dislikes, Hastags);
+    //submitting data using fetch
+    fetch('https://dummyjson.com/posts/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userId: userId,
+        title: postTitle,
+        body: postContent,
+        likes: Likes,
+        dislikes: Dislikes,
+        tags: Hastags
+      })
+    })
+      .then(res => res.json())
+      .then((post) => addPost(post)
+      );
   }
   return (
     <form className="post" onSubmit={handleSubmit}>
