@@ -1,4 +1,9 @@
-function SideBar({ setCurrent, current }) {
+import { useState } from "react";
+import { Link } from "react-router";
+
+function SideBar() {
+  let [current, setCurrent] = useState("Home");
+
   return (
     <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar" >
       <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -8,16 +13,16 @@ function SideBar({ setCurrent, current }) {
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item" onClick={() => setCurrent("Home")}>
-          <a href="#" className={`nav-link ${current == "Home" && "active"}`} aria-current="page">
+          <Link to="/" className={`nav-link ${current == "Home" && "active"}`} aria-current="page">
             <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#home"></use></svg>
             Home
-          </a>
+          </Link>
         </li>
         <li onClick={() => setCurrent("Create")}>
-          <a href="#" className={`nav-link ${current == "Create" && "active"}`}>
+          <Link to="/CreatePost" className={`nav-link ${current == "Create" && "active"}`}>
             <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#speedometer2"></use></svg>
             Create
-          </a>
+          </Link>
         </li>
       </ul>
       <hr />
