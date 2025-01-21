@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router";
+import { Post } from "../store/Post-List-store";
 
 function SideBar() {
-  let [current, setCurrent] = useState("Home");
+  let { current, setCurrent } = useContext(Post);
 
   return (
     <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar" >

@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 export const Post = createContext({});
 
 const PostListReducer = (currPost, action) => {
@@ -16,6 +16,7 @@ const PostListReducer = (currPost, action) => {
 let PostListProvider = ({ children }) => {
 
   let [postlist, dispatchPostlist] = useReducer(PostListReducer, INITIALPOST);
+  let [current, setCurrent] = useState("Home");
 
   let deletePost = (postId) => {
     dispatchPostlist({
@@ -33,7 +34,7 @@ let PostListProvider = ({ children }) => {
     })
   }
   return (
-    <Post.Provider value={{ postlist, deletePost, addPost }} >{children}</Post.Provider>
+    <Post.Provider value={{ postlist, deletePost, addPost, setCurrent, current }} >{children}</Post.Provider>
   )
 }
 let INITIALPOST = [

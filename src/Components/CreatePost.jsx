@@ -3,7 +3,7 @@ import { Post } from "../store/Post-List-store";
 import { useNavigate } from "react-router";
 
 function CreatePost() {
-  let { addPost } = useContext(Post);
+  let { addPost, setCurrent } = useContext(Post);
   const navigate = useNavigate();
 
   let userIdElement = useRef();
@@ -39,6 +39,7 @@ function CreatePost() {
       .then((post) => {
         addPost(post)
         navigate("/");
+        setCurrent("Home");
       }
       );
   }
